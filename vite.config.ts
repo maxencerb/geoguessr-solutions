@@ -1,8 +1,11 @@
 import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { chromeExtension } from "@crxjs/vite-plugin";
+import zipPack from "vite-plugin-zip-pack";
 
 const geoguessrURL = "*://*.geoguessr.com/*";
+
+const version = process.env.npm_package_version;
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -49,6 +52,11 @@ export default defineConfig({
           },
         ],
       },
+    }),
+    zipPack({
+      inDir: "dist",
+      outDir: "dist-zip",
+      outFileName: `geoguessr-solutions-chrome-extension-${version}.zip`,
     }),
   ],
 });

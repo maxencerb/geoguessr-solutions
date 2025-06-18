@@ -1,5 +1,5 @@
 {
-  "name": "geoguessr-solutions",
+  "name": "@maxencerb/geoguessr-solutions",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -21,13 +21,14 @@
     "svelte": "^5.28.1",
     "svelte-check": "^4.1.6",
     "typescript": "~5.8.3",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-zip-pack": "^1.2.4",
+    "@changesets/cli": "^2.29.4"
   },
   "patchedDependencies": {
     "@crxjs/vite-plugin@1.0.14": "patches/@crxjs%2Fvite-plugin@1.0.14.patch"
   },
   "dependencies": {
-    "@changesets/cli": "^2.29.4",
     "svelte-maplibre-gl": "^0.1.10"
   }
 }
