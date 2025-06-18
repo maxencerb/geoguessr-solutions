@@ -1,0 +1,26 @@
+diff --git a/dist/index.cjs b/dist/index.cjs
+index ddf06b48cc86250e5c72c6101a43303de9ba8a03..98eb6902eb69ff9110af80f214a628ad929c5ded 100644
+--- a/dist/index.cjs
++++ b/dist/index.cjs
+@@ -3268,7 +3268,7 @@ const pluginResources = ({ contentScripts = {} }) => {
+               resources: ["**/*", "*"]
+             });
+           } else {
+-            const vmAsset = bundle["manifest.json"];
++            const vmAsset = bundle[".vite/manifest.json"];
+             if (!vmAsset)
+               throw new Error("vite manifest is missing");
+             const viteManifest = JSON.parse(vmAsset.source);
+diff --git a/dist/index.mjs b/dist/index.mjs
+index beadb1174a84b41e3ebb1c805bf431f8c2b23719..e58aa84aa49992f35ef18b5f76ac16d5d4050503 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -3235,7 +3235,7 @@ const pluginResources = ({ contentScripts = {} }) => {
+               resources: ["**/*", "*"]
+             });
+           } else {
+-            const vmAsset = bundle["manifest.json"];
++            const vmAsset = bundle[".vite/manifest.json"];
+             if (!vmAsset)
+               throw new Error("vite manifest is missing");
+             const viteManifest = JSON.parse(vmAsset.source);

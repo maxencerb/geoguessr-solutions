@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+  stroke-linejoin="round" style="opacity: 0.5;">
+  <title>Inactive Icon</title>
+  <!-- Grayscale Globe -->
+  <circle cx="12" cy="12" r="10" stroke="#bdc3c7" fill="#ecf0f1" />
+  <!-- Grayscale Globe Lines -->
+  <path d="M12 2a14.5 14.5 0 0 0 0 20" stroke="#bdc3c7" />
+  <path d="M2 12h20" stroke="#bdc3c7" />
+  <!-- Grayscale Map Pin -->
+  <path d="M12 22s-8-6.36-8-12a8 8 0 1 1 16 0c0 5.64-8 12-8 12z" stroke="#95a5a6" fill="#dde1e2" />
+  <circle cx="12" cy="10" r="3" stroke="#95a5a6" fill="#f8f9f9" />
+</svg>
