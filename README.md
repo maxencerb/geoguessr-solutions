@@ -1,47 +1,122 @@
-# Svelte + TS + Vite
+# GeoGuessr Solutions Extension
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+A Chrome extension that takes advantage of all chrome APIs to find the solution to the current GeoGuessr game (please do not use this in a public game).
 
-## Recommended IDE Setup
+![Extension Screenshot](assets/screenshot.png)
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+## ⚠️ Browser Compatibility
 
-## Need an official Svelte framework?
+This extension is **only available for Chrome** and Chrome-based browsers (Chromium, Edge, etc.).
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+## 🚀 Installation
 
-## Technical considerations
+### For End Users (Recommended)
 
-**Why use this over SvelteKit?**
+1. Go to the [GitHub Releases](https://github.com/maxencerb/geoguessr-solutions/releases) page
+2. Download the latest release ZIP file
+3. Extract the ZIP file to a folder on your computer
+4. Open Chrome and go to `chrome://extensions/`
+5. Enable "Developer mode" in the top right
+6. Click "Load unpacked" and select the extracted folder
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+### For Developers (Custom Installation)
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+1. Clone this repository:
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+   ```bash
+   git clone https://github.com/maxencerb/geoguessr-solutions.git
+   cd geoguessr-solutions
+   ```
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+2. Install dependencies:
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+   ```bash
+   bun install
+   ```
 
-**Why include `.vscode/extensions.json`?**
+3. Build the extension:
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+   ```bash
+   bun run build
+   ```
 
-**Why enable `allowJs` in the TS template?**
+4. Load the extension in Chrome:
+   - Open Chrome and go to `chrome://extensions/`
+   - Enable "Developer mode" in the top right
+   - Click "Load unpacked" and select the `dist` folder from this project
 
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
+## 🎮 How to Use
 
-**Why is HMR not preserving my local component state?**
+### Toggle Extension
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
+- Click on the extension icon in your Chrome toolbar to **toggle between enabling and disabling** the extension
+- When enabled, the extension will provide its features on GeoGuessr
+- When disabled, the extension will be inactive
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+## ✨ Features
 
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
+### 🗺️ Mini Map
+
+- **Auto-displays** when changing levels in GeoGuessr
+- Provides a helpful overview of the current location
+- Automatically updates as you progress through the game
+
+### 🎯 Place Solution Button
+
+- Automatically places the correct solution on the map
+- Saves time by eliminating manual guessing
+- Perfect for learning and practice sessions
+
+## 🐛 Known Issues
+
+### Place Solution Button Not Working
+
+If the "Place Solution" button doesn't work:
+
+1. **Try refreshing the page** - this often resolves the issue
+2. Make sure the extension is enabled (check the extension icon)
+3. Ensure you're on a valid GeoGuessr game page
+
+The issues comes from the fact that the extension injects a middleware into the `google.maps` API, to list all current maps, but the extension can inject it slower than the game loads the map, so the button is not working.
+
+## 🛠️ Development
+
+### Prerequisites
+
+- [Bun](https://bun.sh/) (JavaScript runtime)
+- Chrome browser
+
+### Development Commands
+
+```bash
+# Build for production
+bun run build
+
+# Type checking
+bun run check
 ```
+
+### Project Structure
+
+```
+geoguessr-solutions/
+├── src/
+│   ├── background/     # Background script
+│   ├── content/        # Content script and UI
+│   ├── lib/           # Shared utilities and types
+│   └── popup.svelte   # Extension popup (not used)
+├── public/            # Static assets and icons
+└── dist/              # Built extension (after build)
+```
+
+## 📝 License
+
+This project is private and for educational purposes.
+
+## 🤝 Contributing
+
+This is a private project, but if you have suggestions or find bugs, feel free to report them.
+
+---
+
+**Note**: This extension is designed for educational purposes and to enhance the GeoGuessr learning experience. Please use responsibly and in accordance with GeoGuessr's terms of service.

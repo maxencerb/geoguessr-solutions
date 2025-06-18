@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { dataStore, setOpen } from "./lib/data";
+  import { dataStore } from "./lib/data";
+  import { setOpen } from "./lib/utils";
 </script>
 
 <main>
